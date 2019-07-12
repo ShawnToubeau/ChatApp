@@ -1,0 +1,132 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:focus {
+  outline: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.side-bar,
+.main-windows {
+  display: inline;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.side-bar {
+  border-right: 1px black solid;
+  background-color: lightblue;
+  display: block;
+  width: 30%;
+}
+
+#exit-btn {
+  display: block;
+  margin: 7vh auto 3vh;
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  border: 2px solid red;
+  color: white;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 3px;
+}
+
+#exit-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.left-panel-text {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.main-window {
+  width: 70%;
+}
+
+#chat-user-name {
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 30%;
+}
+
+form {
+  text-align: center;
+  margin-top: 88vh;
+}
+
+input[type="text"],
+select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 90px;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-window-text {
+  margin: auto auto;
+}
+
+#send-btn {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  height: 45px;
+  width: 90px;
+}
+
+#logoff-btn {
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  border: 2px solid red;
+  color: white;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 3px;
+}
+
+#logoff-btn:hover {
+  background-color: white;
+  color: black;
+}
