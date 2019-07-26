@@ -4,17 +4,22 @@ var http = require("http").createServer(app);
 var io = require("socket.io")(http);
 require("dotenv").config();
 var PORT = process.env.PORT || 3030;
+var open = require("open");
 
 var path = require("path");
 
 // Allows us to parse request bodies
 app.use(express.json());
 
+// Define where our static assets are
 app.use(express.static("../Client"));
 
 // Start app on port
 http.listen(PORT, function() {
   console.log(`Listening on port ${PORT}`);
+
+  // Opens the app after starting
+  open(`http://localhost:${PORT}/login`);
 });
 
 // Routing
@@ -35,7 +40,7 @@ app.get("/login", (req, res) => {
 let activeUsers = {};
 
 // Available rooms
-let rooms = ["general", "room2"];
+let rooms = ["General", "Web-Dev"];
 
 io.sockets.on("connection", socket => {
   // Listens for when a user sends a message

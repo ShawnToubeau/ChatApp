@@ -17,18 +17,24 @@
         <h2>Rooms</h2>
       </div>
       <div id="main-window">
-        <div id="conversation"><h2>Messages</h2></div>
+        <div id="conv-container">
+          <h2>Messages</h2>
+          <div id="messages"></div>
+        </div>
         <div id="user-input">
-          <input id="data" style="width:200px;" />
+          <input id="data" />
           <input type="button" id="datasend" value="send" />
         </div>
+        <a href="/login">
+          <button id="logoff-btn">Disconnect</button>
+        </a>
       </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script>
       // Socket that represents the user
-      let socket = io.connect(`http://localhost:3030`);
+      let socket = io.connect(io.connect().io.uri);
 
       // Prompt the user to enter a username
       socket.on("connect", () => {
@@ -48,7 +54,16 @@
 
       // Appends a message to the conversation window
       socket.on("updatechat", (username, data) => {
-        $("#conversation").append(`<b>${username}:</b> ${data}<br>`);
+        var today = new Date();
+        var time =
+          today.getHours() +
+          ":" +
+          today.getMinutes() +
+          ":" +
+          today.getSeconds();
+        $("#messages").append(
+          `<b class="msg-start">${username} {${time}}:</b> ${data}<br>`
+        );
       });
 
       // Updates the list of rooms
@@ -61,11 +76,11 @@
         $.each(rooms, (key, room) => {
           // If the room about to be added is the current room, display it as text
           if (room == currRoom) {
-            $("#rooms").append(`<div>${room}</div>`);
+            $("#rooms").append(`<div class="room">${room}</div>`);
           } else {
             // Else, display all other rooms as clickable objects
             $("#rooms").append(
-              `<div><a href=# onclick=switchRoom('${room}')>${room}</a></div>`
+              `<div class="room"><a href=# onclick=switchRoom('${room}')>${room}</a></div>`
             );
           }
         });
@@ -93,8 +108,10 @@
         // Listens for the button click
         $("#datasend").click(() => {
           let message = $("#data").val();
-          $("#data").val("");
-          socket.emit("sendchat", message);
+          if (message.length > 0) {
+            $("#data").val("");
+            socket.emit("sendchat", message);
+          }
         });
 
         // Listens for the ENTER key

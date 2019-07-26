@@ -28,81 +28,90 @@ h2 {
 
 #users {
   border-right: 1px black solid;
-  background-color: lightblue;
+  background-color: lightgray;
   display: block;
   width: 15%;
+}
+
+.user {
+  padding-left: 7px;
+  padding-top: 3px;
 }
 
 #rooms {
   border-right: 1px black solid;
-  background-color: lightcoral;
+  background-color: white;
   display: block;
   width: 15%;
 }
 
+.room {
+  text-align: center;
+  padding-top: 3px;
+}
+
 #main-window {
-  background-color: lightgreen;
+  background-color: white;
   width: 70%;
+}
+
+#conv-container {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.msg-start {
+  padding-left: 10px;
 }
 
 #user-input {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   width: 70%;
   text-align: center;
 }
 
-/* .main-window-text {
-  margin: auto auto;
+#data {
+  width: 80%;
+  padding: 8px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.logout-btn {
-  position: absolute;
-  right: 0;
+#datasend {
+  width: 70px;
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.user {
-  display: flex;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  height: 60px;
-}
-
-.user-name {
-  width: 40%;
-  text-align: center;
-  margin: auto auto;
-}
-
-.chat-btn-container {
-  width: 40%;
-  margin: auto auto;
-  height: 30px;
-}
-
-.chat-btn {
-  width: 100%;
-  height: 30px;
-  background-color: #e7e7e7;
-  border: 1px solid gray;
-}
-
-.chat-btn:active {
+#datasend:hover {
   background-color: white;
+  color: black;
 }
 
 #logoff-btn {
-  width: 100px;
-  height: 40px;
+  width: 110px;
+  height: 30px;
   background-color: red;
   border: 2px solid red;
   color: white;
   font-size: 16px;
   transition-duration: 0.4s;
   border-radius: 3px;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 #logoff-btn:hover {
   background-color: white;
   color: black;
-} */
+}
