@@ -110,6 +110,6 @@ io.sockets.on("connection", socket => {
       "updatechat",
       "SERVER",
       `${socket.username} has disconnected`
-    );
+    ); // TODO: disconnect message is show multiple times
   });
 });
