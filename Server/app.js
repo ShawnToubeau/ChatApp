@@ -99,17 +99,21 @@ io.sockets.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    // Delete the user from the list of active users
-    delete activeUsers[socket.username];
-    // Remove the user from current room
-    socket.leave(socket.room);
-    // Update the list of active users
-    io.sockets.emit("updateusers", activeUsers);
-    // Notify everyone the user has disconnected
-    socket.broadcast.emit(
-      "updatechat",
-      "SERVER",
-      `${socket.username} has disconnected`
-    ); // TODO: disconnect message is show multiple times
+    // Disconnect is emitted multiple times when a user leaves
+    // so check to make sure it wasn't a false alarm
+    if (socket.userName != undefined) {
+      // Delete the user from the list of active users
+      delete activeUsers[socket.username];
+      // Remove the user from current room
+      socket.leave(socket.room);
+      // Update the list of active users
+      io.sockets.emit("updateusers", activeUsers);
+      // Notify everyone the user has disconnected
+      socket.broadcast.emit(
+        "updatechat",
+        "SERVER",
+        `${socket.username} has disconnected`
+      );
+    }
   });
 });
