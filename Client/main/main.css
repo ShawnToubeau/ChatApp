@@ -25,7 +25,7 @@ h2 {
   display: flex;
   height: 100vh;
 }
-.user:hover { 
+.user:hover {
   background-color: lightgreen;
 }
 
@@ -34,7 +34,7 @@ h2 {
   background-color: lightgray;
   display: block;
   width: 15%;
-  font-family: Helvetica, Arial, sans-serif
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .user {
@@ -55,7 +55,7 @@ h2 {
   padding-top: 3px;
 }
 
-.room:hover{
+.room:hover {
   background-color: lightgreen;
   border-color: black;
 }
@@ -74,8 +74,8 @@ h2 {
   padding-left: 10px;
 }
 
-#messages{
-  font-family: Helvetica, sans-serif
+#messages {
+  font-family: Helvetica, sans-serif;
 }
 
 #user-input {
@@ -109,6 +109,7 @@ h2 {
 #datasend:hover {
   background-color: white;
   color: black;
+  border: 1px black solid;
 }
 
 #logoff-btn {
